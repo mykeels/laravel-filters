@@ -26,7 +26,7 @@ Or that you could automatically include a relationship for a model by adding a `
 
 Hold your horses 😜, I'm about to show you how.
 
-# Setup
+## Setup
 
 - Add repositories to your composer.json file:
 
@@ -47,9 +47,19 @@ Hold your horses 😜, I'm about to show you how.
 }
 ```
 
+- Add to "autoload.psr-4" in your main composer.json file:
+
+```json
+"autoload": {
+    "psr-4": {
+        "Mykeels\\Filters\\": "vendor/mykeels/laravel-filters/"
+    }
+}
+```
+
 - Run `composer update` in your terminal to pull the package in.
 
-# Usage
+## Usage
 
 - In the Model class, you wish to make filterable, use the `FilterableTrait` like:
 
