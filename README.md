@@ -14,6 +14,8 @@ automatically knew to filter the DB query by responding with users that have the
 
 and order the records by age in descending order, all without you having to write boilerplate code.
 
+![laravel-filters](https://user-images.githubusercontent.com/11996508/43687436-08f61c1c-98cd-11e8-962b-cd32c2d3bfb3.gif)
+
 ## Setup
 
 - Add repositories to your composer.json file:
