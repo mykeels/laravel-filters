@@ -28,40 +28,11 @@ Hold your horses 😜, I'm about to show you how.
 
 ## Setup
 
-- Add repositories to your composer.json file:
-
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/mykeels/laravel-filters"
-    }
-]
-```
-
-- Add `mykeels/laravel-filters` to your the `require` section of your composer.json file:
-
-```json
-"require": {
-    "mykeels/filters": "dev-master"
-}
-```
-
-- Add to "autoload.psr-4" in your main composer.json file:
-
-```json
-"autoload": {
-    "psr-4": {
-        "Mykeels\\Filters\\": "vendor/mykeels/laravel-filters/"
-    }
-}
-```
-
-- Run `composer update` in your terminal to pull the package in.
+- Run `composer require mykeels/laravel-filter` in your terminal to pull the package in.
 
 ## Usage
 
-- In the Model class, you wish to make filterable, use the `FilterableTrait` like:
+- In the Model class you wish to make filterable, use the `FilterableTrait` like:
 
 ```php
 <?php
