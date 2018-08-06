@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mykeels\\Filters\\FilterServiceProvider"
+                
             ]
         }
     },
