@@ -8,7 +8,11 @@
             "email": "mykehell123@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/support": "^5.6",
+        "illuminate/http": "^5.6",
+        "illuminate/database": "^5.6"
+    },
     "extra": {
         "laravel": {
             "providers": [
