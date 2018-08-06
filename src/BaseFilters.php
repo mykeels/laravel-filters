@@ -22,7 +22,7 @@ class BaseFilters
     {
         $this->builder = $builder;
         foreach (array_merge($this->global(), $this->filters()) as $name => $value) {
-            if ( ! method_exists($this, $name)) {
+            if (! method_exists($this, $name)) {
                 continue;
             }
             if (strlen($value)) {
@@ -40,16 +40,18 @@ class BaseFilters
     }
     
     public function global():array
-	{
+    {
         return [];
     }
 
-    protected function defer($function) {
+    protected function defer($function)
+    {
         $this->functions->push($function);
         return $this;
     }
 
-    public function transform($model) {
+    public function transform($model)
+    {
         return $this->functions->reduce(function ($model, $function) {
             return $function($model);
         }, $model);
