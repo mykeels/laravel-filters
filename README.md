@@ -28,7 +28,7 @@ Hold your horses 😜, I'm about to show you how.
 
 ## Setup
 
-- Run `composer require mykeels/laravel-filter` in your terminal to pull the package in.
+- Run `composer require mykeels/laravel-filters` in your terminal to pull the package in.
 
 ## Usage
 
