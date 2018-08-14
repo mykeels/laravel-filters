@@ -11,8 +11,7 @@
     "require": {
         "illuminate/support": "^5.6",
         "illuminate/http": "^5.6",
-        "illuminate/database": "^5.6",
-        "phpstan/phpstan": "^0.10.3"
+        "illuminate/database": "^5.6"
     },
     "extra": {
         "laravel": {
@@ -27,7 +26,8 @@
         }
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.3"
+        "squizlabs/php_codesniffer": "^3.3",
+        "phpstan/phpstan": "^0.10.3"
     },
     "scripts": {
         "lint": "./vendor/bin/phpcs ./src/ --standard=PSR2",
