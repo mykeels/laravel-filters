@@ -11,17 +11,19 @@ class BaseFilters
     protected $request;
     protected $builder;
     protected $functions;
+    protected $globals;
   
     public function __construct(Request $request)
     {
         $this->request = $request;
         $this->functions = new Collection();
+        $this->globals = [];
     }
   
     public function apply(Builder $builder):Builder
     {
         $this->builder = $builder;
-        foreach (array_merge($this->global(), $this->filters()) as $name => $value) {
+        foreach ($this->filters() as $name => $value) {
             if (! method_exists($this, $name)) {
                 continue;
             }
@@ -36,12 +38,7 @@ class BaseFilters
   
     public function filters():array
     {
-        return $this->request->all();
-    }
-    
-    public function global():array
-    {
-        return [];
+        return array_merge($this->globals, $this->request->all());
     }
 
     protected function defer($function)
@@ -55,5 +52,11 @@ class BaseFilters
         return $this->functions->reduce(function ($model, $function) {
             return $function($model);
         }, $model);
+    }
+
+    public function add($name, $value = null)
+    {
+        $this->globals[$name] = $value;
+        return $this;
     }
 }
