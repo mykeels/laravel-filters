@@ -31,6 +31,7 @@
     },
     "scripts": {
         "lint": "./vendor/bin/phpcs ./src/ --standard=PSR2",
-        "fix-lint": "./vendor/bin/phpcbf ./src/ --standard=PSR2"
+        "fix-lint": "./vendor/bin/phpcbf ./src/ --standard=PSR2",
+        "analyse": "./vendor/bin/phpstan analyse src -l 0"
     }
 }
