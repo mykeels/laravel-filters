@@ -38,7 +38,7 @@ class BaseFilters
   
     public function filters():array
     {
-        return array_merge($this->globals, $this->request->all());
+        return array_merge($this->request->all(), $this->globals);
     }
 
     protected function defer($function)
