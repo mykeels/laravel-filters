@@ -9,8 +9,10 @@ trait FilterableTrait
 {
     /**
      * Applies filters to the scoped query
-     *
-     * @return Illuminate\Database\Eloquent\Builder
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param \Mykeels\Filters\BaseFilters $filters
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeFilter($query, BaseFilters $filters)
     {
