@@ -13,6 +13,9 @@ class BaseFilters
     protected $functions;
     protected $globals;
   
+    /** 
+     * @param \Illuminate\Http\Request $request
+    */
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -20,6 +23,13 @@ class BaseFilters
         $this->globals = [];
     }
   
+    /** 
+     * Applies respective filter methods present in the subclass 
+     * corresponding to request query parameters.
+     * 
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @return \Illuminate\Database\Eloquent\Builder
+    */
     public function apply(Builder $builder):Builder
     {
         $this->builder = $builder;
@@ -36,6 +46,10 @@ class BaseFilters
         return $this->builder;
     }
   
+    /** 
+     * Get filters from request query parameters.
+     * @return array
+    */
     public function filters():array
     {
         return array_merge($this->request->all(), $this->globals);
