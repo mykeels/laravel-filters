@@ -25,13 +25,20 @@
             "Mykeels\\Filters\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Mykeels\\Filters\\Tests\\": "tests/"
+        }
+    },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.3",
-        "phpstan/phpstan": "^0.10.3"
+        "phpstan/phpstan": "^0.10.3",
+        "phpunit/phpunit": "^7.3"
     },
     "scripts": {
         "lint": "./vendor/bin/phpcs ./src/ --standard=PSR2",
         "fix-lint": "./vendor/bin/phpcbf ./src/ --standard=PSR2",
-        "analyse": "./vendor/bin/phpstan analyse src -l 0"
+        "analyse": "./vendor/bin/phpstan analyse src -l 0",
+        "test": "./vendor/bin/phpunit"
     }
 }
