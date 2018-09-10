@@ -9,13 +9,13 @@ trait FilterableTrait
 {
     /**
      * Applies filters to the scoped query
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param \Mykeels\Filters\BaseFilters $filters
-     * @param string $extraFilters
+     * @param array $extraFilters
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeFilter($query, BaseFilters $filters, $extraFilters = null)
+    public function scopeFilter($query, BaseFilters $filters, array $extraFilters = null)
     {
         return $filters->apply($query, $extraFilters);
     }
