@@ -13,7 +13,7 @@ class BaseFilters
     protected $functions;
     protected $globals;
   
-    /** 
+    /**
      * @param \Illuminate\Http\Request $request
     */
     public function __construct(Request $request)
@@ -23,17 +23,21 @@ class BaseFilters
         $this->globals = [];
     }
   
-    /** 
-     * Applies respective filter methods present in the subclass 
+    /**
+     * Applies respective filter methods present in the subclass
      * corresponding to request query parameters.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param array $extraFilters
      * @return \Illuminate\Database\Eloquent\Builder
     */
-    public function apply(Builder $builder):Builder
+    public function apply(Builder $builder, array $extraFilters = null):Builder
     {
         $this->builder = $builder;
-        foreach ($this->filters() as $name => $value) {
+
+        $filters = $extraFilters ? array_merge($this->filters(), $extraFilters) : $this->filters();
+        
+        foreach ($filters as $name => $value) {
             if (! method_exists($this, $name)) {
                 continue;
             }
@@ -46,7 +50,7 @@ class BaseFilters
         return $this->builder;
     }
   
-    /** 
+    /**
      * Get filters from request query parameters.
      * @return array
     */
