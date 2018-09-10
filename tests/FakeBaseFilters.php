@@ -20,4 +20,12 @@ class FakeBaseFilters extends BaseFilters
     {
         $this->builder->where('baz', '=', $value);
     }
+
+    public function withFoo($value)
+    {
+        $this->defer(function ($obj) use ($value) {
+            $obj->setAttribute('foo', $value);
+            return $obj;
+        });
+    }
 }

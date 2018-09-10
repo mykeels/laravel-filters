@@ -26,11 +26,11 @@ class BaseFilters
 
     /**
      * @var array
-     * 
-     * Used to store the name and values for filters 
+     *
+     * Used to store the name and values for filters
      * computed from fields and values in request parameters
-     * or added programmatically. 
-     * The keys of this array corresponds to methods declared in 
+     * or added programmatically.
+     * The keys of this array corresponds to methods declared in
      * a subclass of this class.
     */
     protected $globals;
@@ -72,9 +72,9 @@ class BaseFilters
         return $this->builder;
     }
   
-    /** 
+    /**
      * Gets filters from request query parameters.
-     * 
+     *
      * @return array
     */
     public function filters():array
@@ -82,9 +82,9 @@ class BaseFilters
         return array_merge($this->request->all(), $this->globals);
     }
 
-    /** 
+    /**
      * Registers queries for relations.
-     * 
+     *
      * @param \Closure $function
      * @return $this
     */
@@ -95,10 +95,10 @@ class BaseFilters
     }
 
 
-    /** Decorates \Illuminate\Database\Eloquent\Model with 
+    /** Decorates \Illuminate\Database\Eloquent\Model with
      * query results from registered queries
      * for one or more model relations.
-     * 
+     *
      * @param \Illuminate\Database\Eloquent\Model $model
      * @return \Illuminate\Database\Eloquent\Model
     */
@@ -109,9 +109,9 @@ class BaseFilters
         }, $model);
     }
 
-    /** 
+    /**
      * Adds a filter programmatically
-     * 
+     *
      * @param string $name
      * @param string $value|null
      * @return $this
