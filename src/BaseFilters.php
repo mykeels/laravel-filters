@@ -28,12 +28,16 @@ class BaseFilters
      * corresponding to request query parameters.
      * 
      * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param string $extraFilters
      * @return \Illuminate\Database\Eloquent\Builder
     */
-    public function apply(Builder $builder):Builder
+    public function apply(Builder $builder, $extraFilters = null):Builder
     {
         $this->builder = $builder;
-        foreach ($this->filters() as $name => $value) {
+
+        $filters = $extraFilters ? array_merge($this->filters(), $extraFilters) : $this->filters();
+        
+        foreach ($filters as $name => $value) {
             if (! method_exists($this, $name)) {
                 continue;
             }
