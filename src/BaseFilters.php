@@ -63,7 +63,7 @@ class BaseFilters
             if (! method_exists($this, $name)) {
                 continue;
             }
-            if (strlen($value)) {
+            if (isset($value)) {
                 $this->$name($value);
             } else {
                 $this->$name();
@@ -120,5 +120,9 @@ class BaseFilters
     {
         $this->globals[$name] = $value;
         return $this;
+    }
+
+    public function request() {
+        return $this->request;
     }
 }
